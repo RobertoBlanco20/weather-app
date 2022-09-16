@@ -2,12 +2,8 @@ import React, {useState} from 'react'
 
 import Error from './Error'
 
-const Form = () => {
+const Form = ({search, setSearch, setConsult}) => {
 
-    const [search , setSearch] = useState({
-        city: '',
-        country: ''
-    })
 
     const [ error , setError ] = useState(false)
 
@@ -33,6 +29,7 @@ const Form = () => {
 
 
         //Enviar los datos al componente principal para consultar la API
+        setConsult(true)
     }
 
 
@@ -79,7 +76,7 @@ const Form = () => {
             </select>
             
 
-            <button type='submit' className='w-full h-10 my-8 bg-cyan-400 text-white rounded font-bolder'>Buscar</button>
+            <button type='submit' className='w-full h-10 my-8 bg-cyan-400 text-white rounded font-bolder hover:bg-cyan-500'>Buscar</button>
         </form>
      );
 }
