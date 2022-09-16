@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import Header from './components/Header';
 import Form from './components/Form.js';
 import Info from './components/Info.js';
+import Error from './components/Error.js';
+import WeatherAnimation from './components/WeatherAnimation';
 
 function App() {
 
@@ -12,23 +14,53 @@ function App() {
 
 const [ consult , setConsult ] = useState(false);
 const [ result, setResult ] = useState({}); 
+const [ error, setError ] = useState(false);
+const [ animation, setAnimation ] = useState(true);
 
 const { city, country } = search;
 
-useEffect(() => {
+useEffect(() =>{ 
 
-  if( consult ){
-      const ApiData = async () => {
+  const ApiData = async () => {
+
+    if( consult ){
       const ApiKey = 'b98cf227e2024a1d93480c9d3afca560';
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${ApiKey}`;
+
+
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
+
       setResult(resultado)
-  }
-  ApiData();
+      setConsult(false)
+      setAnimation(false)
+
+      if( resultado.cod === '404'){
+        setError(true);
+      } else {
+        setError(false)
+      }
+    }
   }
 
-}, [consult])
+  ApiData();
+
+}, [consult]);
+
+
+let componente;
+
+if( animation ){
+  componente = <WeatherAnimation />
+} else if( error ){
+  componente = <Error mensagge='Ciudad o país incorrecto' />
+} else {
+  componente = <Info 
+                  result={result}
+                />
+}
+
+
 
  
 
@@ -47,14 +79,13 @@ useEffect(() => {
             />
           </div>
           <div className= ' mx-16 my-8'>
-            <Info 
-              result={result}
-            />
+              {componente}
           </div>
         </div>
 
+
     </main>
   );
-}
 
+  }
 export default App;
