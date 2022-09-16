@@ -1,11 +1,15 @@
 import React, {useState} from 'react'
 
+import Error from './Error'
+
 const Form = () => {
 
     const [search , setSearch] = useState({
         city: '',
         country: ''
     })
+
+    const [ error , setError ] = useState(false)
 
     const {city, country} = search;
 
@@ -16,11 +20,31 @@ const Form = () => {
             )
     }
 
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        // Validar el form
+        if( city.trim() === '' || country.trim() === ''){
+            setError(true)
+            return
+        }
+
+        setError(false)
+
+
+        //Enviar los datos al componente principal para consultar la API
+    }
+
 
 
     
     return ( 
-        <form className='flex flex-col w-full'>
+        <form 
+            onSubmit={handleSubmit}
+            className='flex flex-col w-full'
+        >
+
+            { error ? <Error mensagge='Todos los campos son obligatorios' /> : null }
             <label id='ciudad' className='w-full my-2'>Ciudad</label>
             <input
                 onChange={ handleChange } 
