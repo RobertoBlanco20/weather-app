@@ -9,13 +9,13 @@ const Info = ({result}) => {
 
     return ( 
         <div>
-            <h2 className="text-4xl text-center font-bold">{name}</h2>
-            <p>Temperatura: { parseFloat( main.temp - kelvin, 10 ).toFixed(1)} <span>&#x2103;</span></p>
+            <h2 className="text-3xl text-center font-bold">{name}</h2>
+            <p className="text-5xl my-6 text-center font-bold">{ parseFloat( main.temp - kelvin, 10 ).toFixed(1)} <span>&#x2103;</span></p>
             
-            <div>
-                <p>Temperatura Maxima: { parseFloat( main.temp_max - kelvin, 10 ).toFixed(1)}</p>
-                <p>Temperatura Minima: { parseFloat( main.temp_min - kelvin, 10 ).toFixed(1)}</p>
-                <p>Sensación Termica: { parseFloat( main.feels_like - kelvin, 10 ).toFixed(1)}</p>
+            <div className="flex justify-around">
+                <p className='font-bold'>T. Max: { parseFloat( main.temp_max - kelvin, 10 ).toFixed(1)} <span>&#x2103;</span></p>
+                <p className='font-bold'>T. Min: { parseFloat( main.temp_min - kelvin, 10 ).toFixed(1)} <span>&#x2103;</span></p>
+                <p className='font-bold'>ST: { parseFloat( main.feels_like - kelvin, 10 ).toFixed(1)} <span>&#x2103;</span></p>
             </div>
         </div>
      );

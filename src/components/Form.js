@@ -69,14 +69,14 @@ const Form = ({search, setSearch, setConsult}) => {
                     <option value="CR">Costa Rica</option>
                     <option value="ES">España</option>
                     <option value="PE">Perú</option>
-                    <option value='UY'>Uruguay</option>
+                    <option value='URU'>Uruguay</option>
                     <option value='PY'>Paraguay</option>
                     <option value='CH'>Chile</option>
                     <option value='BR'>Brasil</option>
             </select>
             
 
-            <button type='submit' className='w-full h-10 my-8 bg-cyan-400 text-white rounded font-bolder hover:bg-cyan-500'>Buscar</button>
+            <button type='submit' className='w-full font-bold h-10 my-8 bg-cyan-400 text-white rounded font-bolder hover:bg-cyan-500'>Buscar</button>
         </form>
      );
 }
