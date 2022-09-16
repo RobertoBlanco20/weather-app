@@ -18,7 +18,7 @@ body{
   @media (min-width:768px){
       .wrapper{
           position: absolute;
-          top: calc(20% - 75px);
+          top: calc(30% - 75px);
           left: calc(75% - 75px);
 
       } 

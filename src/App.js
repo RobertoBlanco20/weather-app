@@ -65,7 +65,7 @@ if( animation ){
  
 
   return (
-    <main>
+    <main className="mt-12">
         <Header 
           title='Weather App'
         />
