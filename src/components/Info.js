@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Info = ({result}) => {
 
     const {main, name} = result;
     const kelvin = 273.15;
 
+    /* Si no tiene nada en main, no muestra nada. */
     if( !main ) return null;
 
     return ( 
@@ -19,6 +21,10 @@ const Info = ({result}) => {
             </div>
         </div>
      );
+}
+
+Info.propTypes = {
+    result: PropTypes.object.isRequired
 }
  
 export default Info;

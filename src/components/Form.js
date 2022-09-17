@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-
 import Error from './Error'
+import PropTypes from 'prop-types'
 
 const Form = ({search, setSearch, setConsult}) => {
 
@@ -79,6 +79,13 @@ const Form = ({search, setSearch, setConsult}) => {
             <button type='submit' className='w-full font-bold h-10 my-8 bg-cyan-400 text-white rounded font-bolder hover:bg-cyan-500'>Buscar</button>
         </form>
      );
+}
+
+Form.propTypes = {
+    setSearch: PropTypes.func.isRequired, 
+    setConsult: PropTypes.func.isRequired,
+    search: PropTypes.object.isRequired
+
 }
  
 export default Form;
