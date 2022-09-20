@@ -26,8 +26,8 @@ body{
 
   @media (max-height:400px){
     .wrapper{
-      top: calc(150% - 75px);
-      left: calc(35% - 75px);
+      top: calc(140% - 75px);
+      left: calc(40% - 75px);
     }
   }
 
