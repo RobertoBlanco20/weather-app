@@ -24,6 +24,13 @@ body{
       } 
   }  
 
+  @media (max-height:400px){
+    .wrapper{
+      top: calc(100% - 75px);
+      left: calc(75% - 75px);
+    }
+  }
+
 .sun{
   position: absolute;
   bottom: 0px;
